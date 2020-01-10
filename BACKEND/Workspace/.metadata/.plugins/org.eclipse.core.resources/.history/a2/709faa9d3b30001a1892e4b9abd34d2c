@@ -1,0 +1,19 @@
+package org.sid.cinema.dao;
+
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Film {
+	private Long id;
+	private String titre;
+	private String description;
+	private String realisaeteur;
+	private Date dateSortie;
+	private double duree;
+	private String photo;
+	private  Collection<Projection> projections; //le film a beaucoup de projections
+	private Categorie categorie; //un film apartient a une categorie
+}

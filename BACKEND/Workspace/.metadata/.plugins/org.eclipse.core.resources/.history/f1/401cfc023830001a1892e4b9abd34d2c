@@ -1,0 +1,8 @@
+package org.sid.cinema.dao;
+
+public class Salle {
+	private Long id;
+	private String name;
+	private int nombrePlace;
+	private Cinema cinema;  // this is because a salle belongs to a Cinema
+}

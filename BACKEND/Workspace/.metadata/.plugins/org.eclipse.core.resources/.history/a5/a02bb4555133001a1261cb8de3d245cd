@@ -1,0 +1,5 @@
+package org.sid.cinema.web;
+
+public class CinemaRestController {
+
+}

@@ -1,0 +1,5 @@
+package org.sid.cinema.service;
+
+public interface CinemaInitSeviceImpl {
+
+}

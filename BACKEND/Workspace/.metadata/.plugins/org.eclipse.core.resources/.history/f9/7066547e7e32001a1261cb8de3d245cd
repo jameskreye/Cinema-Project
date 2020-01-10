@@ -1,0 +1,88 @@
+package org.sid.cinema.service;
+
+import java.util.stream.Stream;
+
+import org.sid.cinema.dao.CinemaRepository;
+import org.sid.cinema.dao.VilleRepository;
+import org.sid.cinema.entities.Cinema;
+import org.sid.cinema.entities.Ville;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CinemaInitSeviceImpl implements ICinemaInitService {
+
+	@Autowired
+	private VilleRepository villeRepository;
+	private CinemaRepository cinemaRepository;
+	
+	@Override
+	public void initVilles() {
+		//will save all this villes
+		Stream.of("Casablanca","Marrakech","Rabat","Tanger").forEach(nameVille ->{
+			Ville ville = new Ville();
+			ville.setName(nameVille);
+			villeRepository.save(ville);
+		});
+		
+	}
+
+	@Override
+	public void initCinemas() {
+		//first iterate over the villes list 
+		villeRepository.findAll().forEach(v ->{
+			Stream.of("MegaRama","IMAX","FOUNOUN","CHAHRAZAD","DAOULIZ")
+			.forEach(nameCinema ->{
+				Cinema cinema = new Cinema();
+				cinema.setName(nameCinema);
+				cinema.setNombreSalles(3+(int)(Math.random()*7));
+				cinema.setVille(v);
+				//cinemaRepository.save(cinema);
+			});
+		});
+		
+	}
+
+	@Override
+	public void initSalles() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initPlaces() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initSeances() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initCategories() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initFilms() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initProjections() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initTickets() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
